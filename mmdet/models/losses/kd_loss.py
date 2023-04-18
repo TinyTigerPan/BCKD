@@ -3,7 +3,6 @@ import mmcv
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-import numpy as np
 
 from ..builder import LOSSES
 from .utils import weighted_loss
@@ -14,7 +13,7 @@ from .utils import weighted_loss
 def novel_kd_loss(pred,
                   soft_label,
                   detach_target=True,
-                  beta=2.0):
+                  beta=1.0):
     r"""Loss function for knowledge distilling using KL divergence.
 
     Args:
@@ -26,26 +25,15 @@ def novel_kd_loss(pred,
     Returns:
         torch.Tensor: Loss tensor with shape (N,).
     """
-    label = soft_label[1]
-    pos = ((label >= 0) & (label < 80)).nonzero().squeeze(1)
-    pos_label = label[pos].long()
-    
-    target = soft_label[0].sigmoid()
+    assert pred.size() == soft_label.size()
+    target = soft_label.sigmoid()
     score = pred.sigmoid()
-    
-    t_pred = torch.argmax(target, dim=1).unsqueeze(1)
-    t_c = target.gather(1, t_pred)
-    s_c = score.gather(1, t_pred)
-    ratio_c = t_c / s_c
-    ratio_nc = (1 - t_c) / (1 - s_c)
-    scale_s = score.scatter(1, t_pred, s_c * ratio_c / ratio_nc) * ratio_nc
-    scale_s[pos].data = score[pos].data.clone()
-    
-    # if detach_target is True:
-    target = target.detach()
-    
-    scale_factor = target - scale_s
-    kd_loss = F.binary_cross_entropy(scale_s, target, reduction='none') * scale_factor.abs().pow(2.0)
+
+    if detach_target:
+        target = target.detach()
+
+    scale_factor = target - score
+    kd_loss = F.binary_cross_entropy_with_logits(pred, target, reduction='none') * scale_factor.abs().pow(beta)
     kd_loss = kd_loss.sum(dim=1, keepdim=False)
     return kd_loss
 

@@ -212,7 +212,7 @@ class LDHead(GFLHead):
             
             loss_kd = self.loss_kd(
                 cls_score,
-                [soft_label, labels],
+                soft_label,
                 weight=label_weights,
                 avg_factor=num_total_samples,)
 
