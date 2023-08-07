@@ -1,9 +1,24 @@
 # Bridging Cross-task Protocol Inconsistency for Distillation in Dense Object Detection
 
+## News and ToDo List
+
+- [ ] Release checkpoints and logs
+- [ ] Release paper and code
+- [x] [2023-07-14] Accepted by ICCV2023 🎉 
+- [x] [2023-04-07] Publish initial code
+
+
 ## Install
 This repo is build on mmdetection 2.28.2
 
-Please refer [this link](https://github.com/open-mmlab/mmdetection/blob/master/docs/en/get_started.md/#Installation) to build the environment.
+Please refer [this link](https://github.com/open-mmlab/mmdetection/blob/2.x/docs/en/get_started.md/#Installation) to build the environment(mmcv...).
+
+Then execute the following command to install.
+```
+git clone https://github.com/TinyTigerPan/BCKD.git
+cd BCKD
+pip install -v -e .
+```
 
 ## Train
 
