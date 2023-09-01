@@ -1,9 +1,14 @@
 # Bridging Cross-task Protocol Inconsistency for Distillation in Dense Object Detection
 
+## Introduction
+
+This repository is the official implementation of ICCV2023: Bridging Cross-task Protocol Inconsistency for Distillation in Dense Object Detection.
+* [arxiv](https://arxiv.org/abs/2308.14286)
+
 ## News and ToDo List
 
-- [ ] Release checkpoints and logs
-- [x] Release paper and code
+- [x] [2023-09-01] Release checkpoints and logs
+- [x] [2023-08-28] Release paper and code
 - [x] [2023-07-14] Accepted by ICCV2023 🎉 
 - [x] [2023-04-07] Publish initial code
 
@@ -45,4 +50,23 @@ bash tools/dist_test.sh configs_file ckpt_file 8
 ```
 
 ## Result
-TODO
+
+| Teacher     | Student    | Schedule | mAP   | download                                                                                                                                                                                     |
+|-------------|------------|----------|-------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|             | GFocal-R50 | 1x       | 40.1  |                                                                                                                                                                                              |
+| GFocal-R101 | GFocal-R50 | 1x       | 43.2  | [log](https://drive.google.com/file/d/1bl7qbEYsrdXvzm0Ya8wMl7INBJXzaA9L/view?usp=drive_link) \| [ckpt](https://drive.google.com/file/d/1AeGpY4QbQ_PlanuauEogZWAbMRH59t-k/view?usp=drive_link)                                                                                      |
+|             | GFocal-R34 | 1x       | 38.9  |                                                                                                                                                                                              |
+| GFocal-R101 | GFocal-R34 | 1x       | 42.0  | [log](https://drive.google.com/file/d/1paU3nDKFNbZcBWXS1ralrDf8dWIIh2vF/view?usp=drive_link) \| [ckpt](https://drive.google.com/file/d/1hJo15YP71xgZdw262Urum89R6324u3dG/view?usp=drive_link) |
+|             | GFocal-R18 | 1x       | 35.8  |                                                                                                                                                                                              |
+| GFocal-R101 | GFocal-R18 | 1x       | 38.6  | [log](https://drive.google.com/file/d/1ijTPJX3hkjddl_GMLBWGnTe272NOTSrz/view?usp=drive_link) \| [ckpt](https://drive.google.com/file/d/1Oy6cSBeFKJx5tooHGRRFOv7QwPdScO6S/view?usp=drive_link) |
+
+
+## Cite
+```
+@article{yang2023bridging,
+  title={Bridging Cross-task Protocol Inconsistency for Distillation in Dense Object Detection},
+  author={Yang, Longrong and Zhou, Xianpan and Li, Xuewei and Qiao, Liang and Li, Zheyang and Yang, Ziwei and Wang, Gaoang and Li, Xi},
+  journal={arXiv preprint arXiv:2308.14286},
+  year={2023}
+}
+```
