@@ -4,6 +4,7 @@
 
 This repository is the official implementation of ICCV2023: Bridging Cross-task Protocol Inconsistency for Distillation in Dense Object Detection.
 * [arxiv](https://arxiv.org/abs/2308.14286)
+* [ICCV 2023 open access](https://openaccess.thecvf.com/content/ICCV2023/html/Yang_Bridging_Cross-task_Protocol_Inconsistency_for_Distillation_in_Dense_Object_Detection_ICCV_2023_paper.html)
 
 ## News and ToDo List
 
@@ -63,10 +64,12 @@ bash tools/dist_test.sh configs_file ckpt_file 8
 
 ## Cite
 ```
-@article{yang2023bridging,
-  title={Bridging Cross-task Protocol Inconsistency for Distillation in Dense Object Detection},
-  author={Yang, Longrong and Zhou, Xianpan and Li, Xuewei and Qiao, Liang and Li, Zheyang and Yang, Ziwei and Wang, Gaoang and Li, Xi},
-  journal={arXiv preprint arXiv:2308.14286},
-  year={2023}
+@InProceedings{Yang_2023_ICCV,
+    author    = {Yang, Longrong and Zhou, Xianpan and Li, Xuewei and Qiao, Liang and Li, Zheyang and Yang, Ziwei and Wang, Gaoang and Li, Xi},
+    title     = {Bridging Cross-task Protocol Inconsistency for Distillation in Dense Object Detection},
+    booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
+    month     = {October},
+    year      = {2023},
+    pages     = {17175-17184}
 }
 ```
